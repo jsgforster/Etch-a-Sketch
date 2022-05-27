@@ -7,6 +7,8 @@ let rubber = 'off';
 let rainbow = 'off';
 let opacity = 'off';
 let random = 'off';
+let totalBackground = '#f9382273';
+let totalBackground2 = '#FDD20EFF'
 
 let opac = document.querySelector('.opacity');
 opac.addEventListener('click', toggleOpacity);
@@ -23,21 +25,48 @@ rain.addEventListener('click',toggleRain);
 let togRandom = document.querySelector('.random');
 togRandom.addEventListener('click',toggleRandom);
 
+let reset = document.querySelector('.reset');
+reset.addEventListener('click',doReset);
+
+function doReset(){
+     size = 52;
+     penColor = '#000000';
+     penColorTemp = '#000000';
+     screenColor = '#ffffff';
+     state = 'off';
+     rubber = 'off';
+     rainbow = 'off';
+     opacity = 'off';
+     random = 'off';
+     createGrid();
+     document.querySelector('body').style.backgroundColor = totalBackground;
+     document.querySelector('.eraser').classList.remove('buttonAfter');
+     document.querySelector('.rainbow').classList.remove('buttonAfter');
+     document.querySelector('.random').classList.remove('buttonAfter');
+     document.querySelector('.opacity').classList.remove('buttonAfter');
+     document.querySelector('.rubber').classList.remove('buttonAfter');
+}
+
 function toggleRandom(){
     if(random == 'off'){
         random = 'on';
         rainbow = 'off';
+        document.querySelector('.random').classList.add('buttonAfter');
+        document.querySelector('.rainbow').classList.remove('buttonAfter');
     }else if(random == 'on'){
         random = 'off';
+        document.querySelector('.random').classList.remove('buttonAfter');
     }
 }
 
 function toggleOpacity(){
     if(opacity == 'off'){
         opacity = 'on';
+        document.querySelector('.opacity').classList.add('buttonAfter');
         setOpacity();
     }else if(opacity == 'on'){
         opacity = 'off';
+        document.querySelector('.opacity').classList.remove('buttonAfter');
     }
 }
 
@@ -45,8 +74,11 @@ function toggleRain(){
     if(rainbow == 'off'){
         rainbow = 'on';
         random = 'off';
+        document.querySelector('.random').classList.remove('buttonAfter');
+        document.querySelector('.rainbow').classList.add('buttonAfter');
     } else if (rainbow == 'on'){
         rainbow = 'off';
+        document.querySelector('.rainbow').classList.remove('buttonAfter');
     }
 }
 
@@ -54,11 +86,12 @@ function toggleRain(){
 function toggleErase(){
     if(rubber == 'off'){
         rubber = 'on';
-        penColor = screenColor;
-        
+        //penColor = screenColor;
+        document.querySelector('.eraser').classList.add('buttonAfter');
     } else if (rubber == 'on'){
         rubber = 'off';
-        penColor = penColorTemp;
+        //penColor = penColorTemp;
+        document.querySelector('.eraser').classList.remove('buttonAfter');
     }
 }
 
@@ -113,30 +146,36 @@ function incrementColor(){
 
 
 let screen = document.querySelector('.screen')
+let body = document.querySelector('body')
 screen.addEventListener('click',function(){
     if(state == 'on'){
         removeListeners();
+        body.style.backgroundColor = totalBackground;
+
     }else if (state == 'off'){
         addListeners();
+        body.style.backgroundColor = totalBackground2;
     }
 });
 
 function ChangeColor(){
-    if(opacity == 'on'){
-        this.style.opacity = +this.style.opacity + 0.1;
-    }else if(opacity == 'off'){
+    if(opacity == 'on' && rubber == 'off'){
+        this.style.opacity = +this.style.opacity + 0.2;
+    }else if(opacity == 'off' || rubber == 'on'){
         this.style.opacity = 1;
     }
     if(rainbow == 'on' && rubber == 'off'){
         incrementColor();
         this.style.backgroundColor = penColor;    
-    }else if(rainbow == 'off'){
+    }else if(rainbow == 'off' && rubber == 'off'){
     this.style.backgroundColor = penColor;
     }
     if(random == 'on' && rubber == 'off'){
         this.style.backgroundColor = generateRandomColor();
     }
-    color.value = penColor;
+    if(rubber == 'on'){
+        this.style.backgroundColor = screenColor;
+    }
 }
 
 function addListeners(){
@@ -185,4 +224,18 @@ slider.oninput = function() {
     createGrid();
   }
 createGrid();
+
+var color_picker = document.querySelector(".picker");
+var color_picker_wrapper = document.querySelector(".picker-wrapper");
+color_picker.onchange = function() {
+	color_picker_wrapper.style.backgroundColor = color_picker.value;    
+}
+color_picker_wrapper.style.backgroundColor = color_picker.value;
+
+var color_picker1 = document.querySelector(".screenPicker");
+var color_picker_wrapper1 = document.querySelector(".picker-wrapper1");
+color_picker.onchange = function() {
+	color_picker_wrapper1.style.backgroundColor = color_picker1.value;    
+}
+color_picker_wrapper1.style.backgroundColor = color_picker1.value;
 

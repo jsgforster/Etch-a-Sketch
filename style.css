@@ -1,18 +1,108 @@
-.screen>div, .screen>div>div{
-   
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9382273;
 }
 
+.wrapper{
+    background-color: white;
+    border-radius: 5px;
+}
 .screen {
     display: grid;
     grid-auto-rows: 1fr;
-    height: 75vh;
-    width: 75vw;
+    height: 600px;
+    width: 600px;
     border: 0.2rem solid black;
     border-radius: 0.3rem;
     cursor: crosshair;
+
+}
+.title {
+    padding: 20px;
+    font-weight: 900px;
+    background-color: aquamarine;
+    border-radius: 10px;
 }
 
-.picker {
-    border: 3px solid pink;
-    border-radius: 50%;
+.content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.options, .part1,
+.part2, .part3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.part3 {
+    margin-top: 50px;
+}
+
+
+/* From uiverse.io by @meermubashar */
+button {
+    width: 140px;
+    height: 45px;
+    font-size: 23px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    position: relative;
+    transition: all 0.5s;
+    z-index: 1;
+   }
+   
+   button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: white;
+    z-index: -1;
+    transition: all 0.5s;
+   }
+   
+   button:hover::before {
+    width: 100%;
+   }
+   
+   button:hover {
+    color: black;
+   }
+   
+   button:active:before {
+    background: #b9b9b9;
+   }
+
+   .buttonAfter {
+       background-color: white;
+       color: black;
+   }
+
+
+
+.picker-wrapper, .picker-wrapper1 {
+    border-radius: 60%;
+    height: 40px;
+    width: 40px;
+}
+.picker, .screenPicker {
+	opacity: 0;
+	display: block;
+    padding: 8px;
+    width: 100%;
+    height: 100%;
+	border: none;
 }
