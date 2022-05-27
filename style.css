@@ -1,0 +1,18 @@
+.screen>div, .screen>div>div{
+   
+}
+
+.screen {
+    display: grid;
+    grid-auto-rows: 1fr;
+    height: 75vh;
+    width: 75vw;
+    border: 0.2rem solid black;
+    border-radius: 0.3rem;
+    cursor: crosshair;
+}
+
+.picker {
+    border: 3px solid pink;
+    border-radius: 50%;
+}
