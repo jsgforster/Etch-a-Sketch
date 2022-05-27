@@ -218,35 +218,35 @@ screnColor.oninput = function(){
     createGrid();
 }
 
-var slider = document.getElementById("myRange");
+let slider = document.getElementById("myRange");
 slider.oninput = function() {
     size = this.value;
     createGrid();
   }
 createGrid();
 
-var color_picker = document.querySelector(".picker");
-var color_picker_wrapper = document.querySelector(".picker-wrapper");
+let color_picker = document.querySelector(".picker");
+let color_picker_wrapper = document.querySelector(".picker-wrapper");
 color_picker.onchange = function() {
 	color_picker_wrapper.style.backgroundColor = color_picker.value;    
 }
 color_picker_wrapper.style.backgroundColor = color_picker.value;
 
-var color_picker1 = document.querySelector(".screenPicker");
-var color_picker_wrapper1 = document.querySelector(".picker-wrapper1");
+let color_picker1 = document.querySelector(".screenPicker");
+let color_picker_wrapper1 = document.querySelector(".picker-wrapper1");
 color_picker.onchange = function() {
 	color_picker_wrapper1.style.backgroundColor = color_picker1.value;    
 }
 color_picker_wrapper1.style.backgroundColor = color_picker1.value;
 
 // Get the modal
-var modal = document.getElementById("myModal");
+let modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+let btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+let span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
