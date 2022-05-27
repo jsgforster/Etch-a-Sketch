@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Etch-a-Sketch</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,6 +12,9 @@
     <h1 class="title">
         Etch-a-Sketch
     </h1>
+    
+
+    
     <div class="content">
         <div class="options">
             <div class="part1">
@@ -32,6 +35,7 @@
                 <button class="clear">Clear</button>
                 <button class="reset">Reset</button>
             </div>
+            <button id="myBtn">Instructions</button>
             <div class="part3">
                 <label for="screenPicker" class="labelPicker">Screen Colour</label>
                 <div class="picker-wrapper1"><input class='screenPicker' type="color" value="#000000">
@@ -39,8 +43,28 @@
         </div>
         </div>
         <div class="wrapper">
-            <div class="screen"></div>
+            <div class="screen">Click the screen to turn the pen on and off</div>
         </div>
+        
     </div>
+    
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Instructions</h3>
+            <ul>
+                <li>Click on the screen to turn the pen on and off</li>
+                <li>Re-sizing the grid will clear it</li>
+                <li>Use the top color picker change the pen color</li>
+                <li>Use the bottom color picker to change the screen background</li>
+            </ul>
+        </div>
+    
+        </div>
 </body>
 </html>
